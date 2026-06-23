@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 SUPPORTED_BROWSERS = ['firefox', 'chromium', 'webkit']
 
 #Step 2: Define the browser
-BROWSER_NAME = 'chromium'
+BROWSER_NAME = 'firefox'
 
 #Step 3: URL
 URL = 'https://www.google.com'
