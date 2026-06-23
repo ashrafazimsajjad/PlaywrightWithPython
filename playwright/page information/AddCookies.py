@@ -49,8 +49,12 @@ def setup(request):
 
 
 @pytest.mark.usefixtures('setup')
-class TestGetCookies:
-    def test_get_cookies(self):
+class TestAddCookies:
+    def test_add_cookies(self):
         self.page.wait_for_timeout(2000)
-        get_cookies = self.page.context.cookies()
-        print(f"Retrieved cookies: {get_cookies}")
+        cookie = {'name': 'test', 'value': 'test-value'}
+        self.page.context.add_cookie([cookie])
+
+        cookies = self.page.context.cookies()
+        cookie_name = [c['name'] for c in cookies]
+        print(cookie_name)

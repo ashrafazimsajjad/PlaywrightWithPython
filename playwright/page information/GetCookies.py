@@ -49,8 +49,8 @@ def setup(request):
 
 
 @pytest.mark.usefixtures('setup')
-class TestPageSource:
-    def test_page_source(self):
+class TestGetCookies:
+    def test_get_cookies(self):
         self.page.wait_for_timeout(2000)
-        page_source = self.page.content()
-        print(f'Retrieved Page Source: {page_source}')
+        get_cookies = self.page.context.cookies()
+        print(f"Retrieved cookies: {get_cookies}")
