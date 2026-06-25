@@ -53,3 +53,14 @@ class TestCoreLocators:
         first_name = self.page.locator('#firstName')  # For Class -> Dot(.), For Id -> #
         first_name.fill('Sajjad')
         time.sleep(2)
+
+    def test_by_name(self):
+        nid = self.page.locator("[name='national_id']")
+        nid.fill('1234567890')
+        time.sleep(2)
+
+    def test_by_css_selector(self):
+        # tagName[attributeName='value']
+        last_name = self.page.locator("input[name='last_name']")
+        last_name.fill("Hossain")
+        time.sleep(2)
