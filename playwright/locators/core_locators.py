@@ -64,3 +64,13 @@ class TestCoreLocators:
         last_name = self.page.locator("input[name='last_name']")
         last_name.fill("Hossain")
         time.sleep(2)
+
+    def test_by_class(self):
+        emergency_call = self.page.locator(".form-input").nth(4)
+        emergency_call.fill("10125")
+        time.sleep(2)
+
+    def test_by_class2(self):
+        dropdown = self.page.locator(".form-select").nth(1)
+        dropdown.click()
+        time.sleep(2)
