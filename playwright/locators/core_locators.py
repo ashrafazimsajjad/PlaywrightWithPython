@@ -74,3 +74,19 @@ class TestCoreLocators:
         dropdown = self.page.locator(".form-select").nth(1)
         dropdown.click()
         time.sleep(2)
+
+    def test_by_tag_name(self):
+        sections = self.page.locator("section")
+        print(f"Total Sections: {sections.count()}")
+        time.sleep(2)
+
+    def test_by_link(self):
+        back_to_home = self.page.locator("a:has-text('Back')")
+        back_to_home.click()
+        time.sleep(2)
+
+    def test_by_xpath(self):
+        #Xpath Syntax: //tagName[@attribute_name='attribute_value']
+        email = self.page.locator("//input[@placeholder='you@example.com']")
+        email.fill("test@noemail.com")
+        time.sleep(3)
