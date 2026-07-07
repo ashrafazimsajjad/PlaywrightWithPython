@@ -72,3 +72,15 @@ class TestBuildInLocators:
         time.sleep(3)
         self.page.get_by_label("Marital Status").select_option("Married")
         time.sleep(3)
+
+    def test_get_by_text(self):
+        self.page.get_by_text("First Name").fill("Sajjad")
+        time.sleep(3)
+
+    def test_get_by_placeholder(self):
+        self.page.get_by_placeholder("ID Number").fill("7796540370")
+        time.sleep(3)
+
+    def test_get_by_alt_text(self):
+        self.page.get_by_alt_text("QA Mirror").click()
+        time.sleep(3)
