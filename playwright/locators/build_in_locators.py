@@ -48,7 +48,7 @@ def setup(request):
 
 @pytest.mark.usefixtures("setup")
 class TestBuildInLocators:
-    def test_by_getByRole(self):
+    def test_get_by_role(self):
         first_name = self.page.get_by_role("textbox", name="First Name")
         first_name.fill("Sajjad")
         time.sleep(3)
@@ -63,4 +63,12 @@ class TestBuildInLocators:
         time.sleep(3)
 
         self.page.get_by_role("link", name="Back").click()
+        time.sleep(3)
+
+    def test_get_by_label(self):
+        self.page.get_by_label("First Name").fill("Sajjad")
+        time.sleep(3)
+        self.page.get_by_label("Personal Email").fill("test@noemail.com")
+        time.sleep(3)
+        self.page.get_by_label("Marital Status").select_option("Married")
         time.sleep(3)
