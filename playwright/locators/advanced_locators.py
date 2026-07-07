@@ -57,7 +57,27 @@ class TestAdvancedLocators:
         personal_information = self.page.locator("[aria-label='Personal Information Form']")
         print(f'Text Content: {personal_information.inner_text()}')
 
-    def test_by_chainlocator(self):
+    def test_by_chain(self):
         last_name = self.page.locator("section >> #lastName")
         last_name.fill("Test")
+        time.sleep(3)
+
+    def test_by_parent_child_relationship(self):
+        back_button = self.page.locator("nav > a").first
+        back_button.click()
+        time.sleep(3)
+
+    def test_by_and_expression(self):
+        nid = self.page.locator("//input[@id='nationalId' and @name='national_id1']")
+        nid.fill("12312313")
+        time.sleep(3)
+
+    def test_by_or_expression(self):
+        nid = self.page.locator("//input[@id='nationalId' or @name='national_id1']")
+        nid.fill("12312313")
+        time.sleep(3)
+
+    def test_by_contains(self):
+        skill = self.page.locator("//textarea[contains(@id, 'skills')]")
+        skill.fill("Automation - Playwright, Python, Git")
         time.sleep(3)
