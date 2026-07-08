@@ -84,3 +84,11 @@ class TestBuildInLocators:
     def test_get_by_alt_text(self):
         self.page.get_by_alt_text("QA Mirror").click()
         time.sleep(3)
+
+    def test_get_by_title(self):
+        self.page.get_by_title("QA Mirror Home").click()
+        time.sleep(3)
+
+    def test_get_by_test_id(self):
+        self.page.get_by_test_id("input-first-name").fill("Sajjad")
+        time.sleep(3)
